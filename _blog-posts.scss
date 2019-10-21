@@ -1,0 +1,135 @@
+
+.custom-posts {
+	@include flex-grid-row(null, $grid-row-width, 12);
+	@include flex-align(justify, stretch);
+	width: 100%;
+
+	.custom-post {
+		@include flex-grid-column(3.88,30);
+		background-position: center;
+
+		@include breakpoint(900px down) {
+			@include breakpoint(900px down);
+			@include flex-grid-column(12,33);
+			@include rem(margin-bottom, 20rem);
+		}
+	}
+}
+
+.custom-posts--blog-page {
+	@include rem(margin-bottom, 30px);
+}
+
+.animated-posts {
+	.custom-post {
+		&:before {
+			content: '';
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    background: #fff;
+		    height: 100%;
+		    transition: all 1.5s ease;
+		    z-index: 1;
+		}
+
+		&.is-active {
+			&:before {
+				height: 0;
+			}
+		}
+	}
+}
+
+.post-cat {
+	display: inline-block;
+	@include rem(font-size, 12px);
+	font-weight: bold;
+	color: $white;
+	@include rem(padding, 13px 22px);
+	border: 1px solid $white;
+	border-radius: 25px;
+	transition: all .5s;
+
+	&:hover {
+		background: $white;
+		color: $black;
+	}
+}
+
+.post-date {
+	display: block;
+	@include rem(font-size, 14px);
+	line-height: 1.2;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+
+	@include breakpoint(xsmall down) {
+		@include rem(font-size, 13px);
+	}
+}
+
+.cat-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@include rem(margin-bottom, 52px);
+	position: relative;
+
+	@include breakpoint(xsmall down) {
+		@include rem(margin-bottom, 28px);
+	}
+
+	&:after {
+	    content: '';
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: 0;
+	    background: #fff;
+	    height: 100%;
+	    transition: all 0.8s ease;
+	    z-index: 1;
+	}
+
+
+	&.is-active {
+	    &:after {
+	        height: 0;
+	    }
+	}
+
+	.is_IE & {
+		&:after {
+			display: none;
+		}
+	}
+
+	.cat-item {
+		margin-left: 0;
+		margin-bottom: 0;
+
+		@include breakpoint(900px down) {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+
+.cat-link {
+	@include breakpoint(900px down) {
+		display: none;
+	}
+}
+
+.all-link {
+	display: none;
+	@include breakpoint(900 down) {
+		display: block;
+		@include flex-grid-column(12,0);
+		text-align: center;
+	}
+}

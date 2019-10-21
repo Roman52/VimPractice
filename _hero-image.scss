@@ -1,0 +1,16 @@
+
+.container.container--hero-image {
+	margin-bottom: 45px;
+	max-width: 1440px;
+}
+
+.hero-image {
+	background-size: cover;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		vertical-align: bottom;
+		visibility: hidden;
+	}
+}
